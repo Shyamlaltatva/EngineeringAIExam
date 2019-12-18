@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.engineerai.android.R;
-import com.engineerai.android.api.RestAPIClient;
+import com.engineerai.android.api.RestApiClient;
 import com.engineerai.android.model.responsemodel.APIResponse;
 import com.engineerai.android.ui.adapter.UserLisrAdapter;
 import com.engineerai.android.util.EndLessRecyclerViewScrollListener;
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                         callGetUserListAPI();
 
                     }else {
+                        Util.cancelProgress();
                         Toast.makeText(MainActivity.this, "No Internet connection available", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         if(Util.checkInternetConnection(getApplicationContext()))
         {
 
-            Call<APIResponse> apiCall= RestAPIClient.getRestApiMethods().getList(pageNo,10);
+            Call<APIResponse> apiCall= RestApiClient.getApiInterface().getList(pageNo,10);
             apiCall.enqueue(new Callback<APIResponse>() {
                 @Override
                 public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
@@ -133,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }else {
+            Util.cancelProgress();
             Toast.makeText(MainActivity.this, "No Internet connection available", Toast.LENGTH_SHORT).show();
         }
     }

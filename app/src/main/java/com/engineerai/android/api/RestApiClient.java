@@ -11,12 +11,15 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RestAPIClient {
+/**
+ * Rest Api Client for creating instance of Retrofit
+ */
+public class RestApiClient {
 
     private static Retrofit retrofit = null;
 
-    public static RestApiMethod getRestApiMethods() {
-        return createRetrofit().create(RestApiMethod.class);
+    public static ApiInterface getApiInterface() {
+        return createRetrofit().create(ApiInterface.class);
     }
 
     private static Retrofit createRetrofit() {
@@ -35,8 +38,6 @@ public class RestAPIClient {
     @NonNull
     private static OkHttpClient.Builder getBuilder() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        // set your desired log level
-       /// if (BuildConfig.IS_DEBUG)
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.connectTimeout((long)60 * 3, TimeUnit.SECONDS)
