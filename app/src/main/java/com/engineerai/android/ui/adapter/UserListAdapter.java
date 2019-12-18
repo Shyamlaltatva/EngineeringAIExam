@@ -19,13 +19,13 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class UserLisrAdapter extends RecyclerView.Adapter {
+public class UserListAdapter extends RecyclerView.Adapter {
 
     private ArrayList<APIResponse.Data.Users> userlist;
     private Activity mAct;
     private GridPostAdapter gridPostAdapter;
 
-    public UserLisrAdapter(Activity activity, ArrayList<APIResponse.Data.Users> list) {
+    public UserListAdapter(Activity activity, ArrayList<APIResponse.Data.Users> list) {
         this.mAct = activity;
         this.userlist = list;
     }
@@ -90,7 +90,7 @@ public class UserLisrAdapter extends RecyclerView.Adapter {
         private TextView tvUserName;
         private CircleImageView ivUserPhoto;
 
-        public ItemViewHolder(@NonNull View itemView) {
+        ItemViewHolder(@NonNull View itemView) {
             super(itemView);
 
             rvPost = itemView.findViewById(R.id.rvPost);

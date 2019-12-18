@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.engineerai.android.R;
 import com.engineerai.android.api.RestApiClient;
 import com.engineerai.android.model.responsemodel.APIResponse;
-import com.engineerai.android.ui.adapter.UserLisrAdapter;
+import com.engineerai.android.ui.adapter.UserListAdapter;
 import com.engineerai.android.util.EndLessRecyclerViewScrollListener;
 import com.engineerai.android.util.Util;
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<APIResponse.Data.Users> usersArrayList=new ArrayList<>();
     private SwipeRefreshLayout swipeRefreshLayout;
     private RelativeLayout relLoadingMore;
-    private UserLisrAdapter userLisrAdapter;
+    private UserListAdapter userLisrAdapter;
     private EndLessRecyclerViewScrollListener rvScrollListener;
 
 
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 //First time list is empty to set the adapter
                 rvUser.setLayoutManager(getLayoutManger());
 
-                userLisrAdapter=new UserLisrAdapter(this,usersArrayList);
+                userLisrAdapter=new UserListAdapter(this,usersArrayList);
                 rvUser.setAdapter(userLisrAdapter);
                 rvUser.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
                 rvUser.addOnScrollListener(rvScrollListener);
