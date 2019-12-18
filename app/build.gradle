@@ -24,7 +24,7 @@ dependencies {
 
 
     def support_version = "27.1.0"
-    def butterKnifeVersion = "10.2.0"
+ //   def butterKnifeVersion = "10.2.0"
     def glideVersion = "3.7.0"
     def cricularImageviewVersion = "3.0.1"
     def retrofitVersion = "2.3.0"
