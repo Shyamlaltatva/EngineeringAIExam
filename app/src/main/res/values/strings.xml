@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestExam</string>
+    <string name="post_list">Post List</string>
+    <string name="loading">Loading</string>
+</resources>
